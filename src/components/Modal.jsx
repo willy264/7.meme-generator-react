@@ -10,7 +10,7 @@ const Modal = (props) => {
         <div className="card">
           <span className="material-icons" style={{fontVariationSettings: "'FILL' 0, 'wght' 100, 'GRAD' 200, 'opsz' 24"}} onClick={props.handleClick}>close</span>
           <div className='image'>
-            <img src="public/images/3d cartoon wallpapers hd 3d cartoon wallpapers hd angry birds-removebg-preview.png" alt="" />
+            <img src="public/images/react.svg" alt="" />
           </div>
           <div className='text'>
             <h3>Welcome</h3>
