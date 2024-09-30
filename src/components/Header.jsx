@@ -14,7 +14,7 @@ const Header = (props) => {
         <h4>React Js</h4>        
       </div>
       <div className="imgContain">
-        <img onClick={props.handleClick} src="../images/3d cartoon wallpapers hd 3d cartoon wallpapers hd angry birds.jpg" alt="" />
+        <img onClick={props.handleClick} src="public/images/3d cartoon wallpapers hd 3d cartoon wallpapers hd angry birds.jpg" alt="" />
       </div>
     </Container>
   )
