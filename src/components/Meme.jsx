@@ -9,7 +9,7 @@ const Meme = () => {
   const [meme, setMeme] = React.useState({
     topText: '',
     bottomText: '',
-    randomImage: 'https://i.imgflip.com/38el31.jpg',
+    randomImage: 'https://i.imgflip.com/1ur9b0.jpg',
   })
 
   // const [allMemes, setAllMemes] = React.useState(memesData)
@@ -81,6 +81,7 @@ const Meme = () => {
 
 const Main = styled.main`
   padding: 36px;
+  margin-top: 100px;
 `
 const Form = styled.div`
   display: grid;
@@ -112,6 +113,9 @@ const Form = styled.div`
     color: white;
     border: none;
     cursor: pointer;
+    &:active {
+      transform: scale(.95);
+    }
   }
   img {
     max-width: 100%;

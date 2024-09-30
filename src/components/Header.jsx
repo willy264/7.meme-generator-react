@@ -1,36 +1,74 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 
-const Header = () => {
+const Header = (props) => {
+
+  const [button, setButton] = React.useState()
+
+  function handleClick() {
+    console.log('i was click')
+
+  }
+
   return (
     <Container>
-      <img src="src/assets/Troll-Face.png" alt="" />
-      <h2>Header</h2>
-      <h4>React Course </h4>
+      <div className="imgContain">
+        <img onClick={handleClick} src="src/assets/3d cartoon wallpapers hd 3d cartoon wallpapers hd angry birds.jpg" alt="" />
+      </div>
+      <div className="text">
+        <h2>Meme Generator</h2>
+        <h4>React Js</h4>        
+      </div>
+
     </Container>
   )
 }
 
 const Container = styled.header`
+  overflow: hidden;
+  position: fixed;
+  z-index: 11;
+  backdrop-filter: blur(30px);
   display: flex;
   align-items: center;
-  height: 65px;
-  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
-  color: white;
-  padding: 20px;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100px;
+  background: transparent;
+  padding: 50px;
 
-  img {
-    height: 100%;
-    margin-right: 6px;
+  .imgContain {
+    img {
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+      object-fit: cover;
+      background: linear-gradient(#000 0 0) padding-box, linear-gradient(to right, orange, #ff4800) border-box;
+      border: 3px solid transparent;
+      cursor: pointer;
+      
+      &:hover {
+        transform: scale(1.2);
+      }
+      &:active {
+      transform: scale(.95);
+    }
+    }
   }
-  h2 {
-    font-size: 1.25rem;
-    margin-right: auto;
+
+  .text {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    h2 {
+      font-size: 1.25rem;
+    }
+    h4 {
+      font-size: .75rem;
+      font-weight: 500;
+    }    
   }
-  h4 {
-    font-size: .75rem;
-    font-weight: 500;
-  }
+
 `
 
 
