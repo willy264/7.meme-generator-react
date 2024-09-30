@@ -9,14 +9,13 @@ const Header = (props) => {
 
   return (
     <Container>
-      <div className="imgContain">
-        <img onClick={props.handleClick} src="src/assets/3d cartoon wallpapers hd 3d cartoon wallpapers hd angry birds.jpg" alt="" />
-      </div>
       <div className="text">
         <h2>Meme Generator</h2>
         <h4>React Js</h4>        
       </div>
-
+      <div className="imgContain">
+        <img onClick={props.handleClick} src="src/assets/3d cartoon wallpapers hd 3d cartoon wallpapers hd angry birds.jpg" alt="" />
+      </div>
     </Container>
   )
 }
@@ -24,6 +23,7 @@ const Header = (props) => {
 const Container = styled.header`
   overflow: hidden;
   position: fixed;
+  top: 0;
   z-index: 11;
   backdrop-filter: blur(30px);
   display: flex;
@@ -43,13 +43,15 @@ const Container = styled.header`
       background: linear-gradient(#000 0 0) padding-box, linear-gradient(to right, orange, #ff4800) border-box;
       border: 3px solid transparent;
       cursor: pointer;
-      
-      &:hover {
-        transform: scale(1.2);
+      animation: imageanime 500ms ease forwards infinite;
+      @keyframes imageanime {
+        0% {
+          transform: scale(.96);
+        }
+        100% {
+          transform: scale(1);
+        }
       }
-      &:active {
-      transform: scale(.95);
-    }
     }
   }
 
