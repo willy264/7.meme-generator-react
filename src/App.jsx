@@ -12,8 +12,8 @@ function App() {
     <>
       <Header />
       <Meme />
-      <Practive />
-      <Timed />
+      {/* <Practive /> */}
+      {/* <Timed /> */}
     </>
   )
 }
