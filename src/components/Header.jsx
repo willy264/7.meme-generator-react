@@ -1,19 +1,16 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
+import Modal from './Modal';
 
 const Header = (props) => {
 
-  const [button, setButton] = React.useState()
+  // const [button, setButton] = React.useState()
 
-  function handleClick() {
-    console.log('i was click')
-
-  }
 
   return (
     <Container>
       <div className="imgContain">
-        <img onClick={handleClick} src="src/assets/3d cartoon wallpapers hd 3d cartoon wallpapers hd angry birds.jpg" alt="" />
+        <img onClick={props.handleClick} src="src/assets/3d cartoon wallpapers hd 3d cartoon wallpapers hd angry birds.jpg" alt="" />
       </div>
       <div className="text">
         <h2>Meme Generator</h2>

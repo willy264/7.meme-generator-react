@@ -1,61 +1,55 @@
-import './App.css'
 import React from 'react'
 import styled from 'styled-components'
 
-import Header from './components/Header'
-import Meme from './components/Meme'
-import Modal from './components/Modal'
-import Practive from './components/practice/Practive'
-import Timed from './components/practice/Timed'
 
-function App() {
-  
-  const [showModal, setShowModal] = React.useState(true)
-
-  function toggleModal () {
-    setShowModal(!showModal)
-  }
+const Modal = (props) => {
 
   return (
-    <Main>
-        {/*1. <button onClick={toggleModal}>Modal</button> */}
-        {/*1.  <div>{showModal ? <Modal show={'grid'} /> : <Modal show={'none'} /> }</div> */}
-        {/* <Modal handleClick={toggleModal} /> */}
-        {showModal && ( 
-          <div className="popup">
-            <Modal handleClick={toggleModal}/>
+
+      <Pop className="modal">
+        <div className="card">
+          <span className="material-icons" style={{fontVariationSettings: "'FILL' 0, 'wght' 100, 'GRAD' 200, 'opsz' 24"}} onClick={props.handleClick}>close</span>
+          <div className='image'>
+            <img src="src/assets/3d cartoon wallpapers hd 3d cartoon wallpapers hd angry birds-removebg-preview.png" alt="" />
           </div>
-        )}
-        <Header handleClick={toggleModal} />
-        <Meme />
-        {/* <Practive /> */}
-        {/* <Timed /> */}        
-    </Main>
+          <div className='text'>
+            <h3>Welcome</h3>
+            <p>Meme Generator</p>
+            <span>Start building your own meme</span>
+          </div>
+        </div>          
+      </Pop>              
+    // <Main style={{display: `${props.show}`}}>
+    //   <div className="card">
+    //     <span className="material-icons" style={{fontVariationSettings: "'FILL' 0, 'wght' 100, 'GRAD' 200, 'opsz' 24"}} >close</span>
+    //     <div className='image'>
+    //       <img src="src/assets/3d cartoon wallpapers hd 3d cartoon wallpapers hd angry birds-removebg-preview.png" alt="" />
+    //     </div> 
+    //     <div className='text'>
+    //       <h3>Welcome</h3>
+    //       <p>Meme Generator</p>
+    //       <span>Start building your own meme</span>
+    //     </div>
+    //   </div>          
+    // </Main>
   )
 }
 
-const Main = styled.body`
-  font-family: 'Montserrat', cursive;
-  overflow: hidden;
-  background-color: black;
-  color: white;
-
-  .popup {
-
-    /* .modal {
+const Pop = styled.header`
       position: fixed;
       inset: 0;
       background-color: hsla(5, 90%, 4%, .2);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       display: grid;
+      /* display: none; */
       justify-content: center;
       place-items: center;
       padding: 2rem 1.5rem;
-      opacity: 0;
+      /* opacity: 0;
       visibility: hidden;
       pointer-events: none;
-      transition: opacity .4s, visibility .4s;
+      transition: opacity .4s, visibility .4s; */
       color: black;
       z-index: 12;
 
@@ -67,8 +61,8 @@ const Main = styled.body`
         display: grid;
         row-gap: 1.5rem;
         text-align: center;
-        transform: rotateX(90deg);
-        transition: transform .6s;
+        /* transform: rotateX(90deg); */
+        /* transition: transform .6s; */
 
         .material-icons {
           z-index: 11;
@@ -130,10 +124,12 @@ const Main = styled.body`
             -webkit-text-fill-color: transparent;
           }
         }
-      }
-    } */
 
-  }
+
+      }
+
+    /* } */
 `
 
-export default App
+
+export default Modal
