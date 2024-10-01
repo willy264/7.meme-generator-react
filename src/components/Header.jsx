@@ -11,7 +11,7 @@ const Header = (props) => {
     <Container>
       <div className="text">
         <h2>Meme Generator</h2>
-        <h4>React Js</h4>        
+        <h4>with React Js</h4>        
       </div>
       <div className="imgContain">
         <img onClick={props.handleClick} src="https://e1.pxfuel.com/desktop-wallpaper/176/69/desktop-wallpaper-3d-cartoon-3d-cartoon-angry-birds-1366x768-for-your-mobile-tablet-thumbnail.jpg" alt="" />
@@ -57,7 +57,7 @@ const Container = styled.header`
 
   .text {
     display: flex;
-    gap: 50px;
+    gap: 10px;
     align-items: center;
     h2 {
       font-size: 1.25rem;

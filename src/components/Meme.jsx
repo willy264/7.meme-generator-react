@@ -9,7 +9,7 @@ const Meme = () => {
   const [meme, setMeme] = React.useState({
     topText: '',
     bottomText: '',
-    randomImage: 'https://i.imgflip.com/1ur9b0.jpg',
+    randomImage: 'https://i.imgflip.com/3po4m7.jpg',
   })
 
   // const [allMemes, setAllMemes] = React.useState(memesData)
@@ -46,29 +46,47 @@ const Meme = () => {
   return (
     <Main>
       <Form>
-        <label htmlFor='topText'>
-          Top Text
-          {/* <input id='topText' type="text" placeholder='Shut up' /> */}
+      <div className="formInput">
+          <label htmlFor='url'>
+            Image URL
+          </label> 
+          <input 
+            style={{pointerEvents: 'none'}}
+            type="text"
+            name="url"
+            value={meme.randomImage}
+          />          
+        </div>
+        <div className="formInput">
+          <label htmlFor='topText'>
+            Top Text
+            {/* <input id='topText' type="text" placeholder='Shut up' /> */}
+          </label>
           <input 
             type="text"
             placeholder="Top text"
             name="topText"
             value={meme.topText}
             onChange={handleChange}
-          />
-        </label>
-        <label>
-          Bottom Text
-          {/* <input type="text" placeholder='And take my money' /> */}
+          />          
+        </div>
+        <div className="formInput">
+          <label>
+            Bottom Text
+            {/* <input type="text" placeholder='And take my money' /> */}
+          </label> 
           <input 
             type="text"
             placeholder="Bottom text"
             name="bottomText"
             value={meme.bottomText}
             onChange={handleChange}
-          />
-        </label>
-        <button onClick={getMemeImage}>Get a new meme image  🖼</button>
+          />          
+        </div>
+
+        <div className="clickBut">
+          <button onClick={getMemeImage}>Get a new meme image  🖼</button>
+        </div>
       </Form>
       <Memecontent>
         <img src={meme.randomImage} alt="" />          
@@ -81,38 +99,64 @@ const Meme = () => {
 
 const Main = styled.main`
   padding: 36px;
-  margin-top: 100px;
+  margin: 100px;
+  background-color: antiquewhite;
+  border-radius: 50px;
+  display: grid;
+  grid-template-columns: .7fr 1fr;
+  gap: 50px;
+
 `
 const Form = styled.div`
   display: grid;
-  grid-template: repeat(2, 40px) / repeat(2, 1fr);
-  gap: 47px;
-  justify-content: center;
-  justify-items: center;
+  grid-template-rows: repeat(4, .1fr);
+  gap: 30px;
 
-  label {
-    display: grid;
+  .formInput {
+    display: flex;
+    flex-direction: column;
     gap: 10px;
-    border: none;
 
+    label {
+      letter-spacing: 2px;
+      font-weight: 700;  
+      margin-left: 20px;
+    }
     input {
+      width: 100%;
       border-radius: 5px;
       text-indent: 5px;
-      padding: 10px;
+      padding: 15px;
+      letter-spacing: 2px;
+      font-weight: 500;
+      font-size: 15px;
       border: 1px solid #d5d4d8;
+      box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.077);
+
       &:focus {
         outline: 3.5px solid #aa18da83;
       }
-    }      
+    }        
   }
 
+
   button {
-    grid-column: 1 / -1;
-    border-radius: 5px;
-    background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+    background: linear-gradient(#000000 0 0) padding-box, 
+      linear-gradient(
+        to right,       
+        #000000bb 0%, 
+        #ff8800 50%,
+        #000000ce 100%) border-box;
+    border: 3px solid transparent;
     color: white;
-    border: none;
+    box-shadow: 0px 0px 30px -10px #707070;
+    padding: 15px 25px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 15px;
+    border-radius: 7px;
     cursor: pointer;
+
     &:active {
       transform: scale(.95);
     }

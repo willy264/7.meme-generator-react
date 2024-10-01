@@ -14,8 +14,8 @@ const Modal = (props) => {
           </div>
           <div className='text'>
             <h3>Welcome</h3>
-            <p>Meme Generator</p>
-            <span>Start building your own meme</span>
+            <p>Get Started by building your own meme</p>
+            <span>Meme Generator</span>
           </div>
         </div>          
       </Pop>              
@@ -50,11 +50,13 @@ const Pop = styled.header`
   .card {
     position: relative;
     width: fit-content;
-    background-color: #ffefd3;
+    background-color: #f3dcb3;
     padding: 3rem 1.25rem 2rem;
     display: grid;
     row-gap: 1.5rem;
+    border: none;
     text-align: center;
+    box-shadow: 0px 5px 41px 2px #00000084 inset;
     animation: animate 1s ease forwards 1;
     @keyframes animate {
       0% {
@@ -115,7 +117,7 @@ const Pop = styled.header`
         color: #787777;
       }
       span {
-        font-size: 15px;
+        font-size: 45px;
         background: linear-gradient(
         to top, 
         #000000a1 0%, 
