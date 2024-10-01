@@ -167,10 +167,10 @@ const Main = styled.main`
   grid-template-columns: .7fr 1fr;
   gap: 50px;
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1800px) {
     grid-template-columns: 1fr;
   }
-  @media (max-width: 800px) {
+  @media (max-width:1800px) {
     background-color: transparent;
     padding: 36px 0;
     margin: 100px 30px;
@@ -185,7 +185,7 @@ const Form = styled.div`
   grid-template-rows: repeat(4, .1fr);
   gap: 30px;
 
-  @media (max-width: 800px) {
+  @media (max-width: 1800px) {
     background-color: antiquewhite;
     padding: 36px;
     border-radius: 30px;
