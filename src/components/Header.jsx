@@ -29,20 +29,16 @@ const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100vw;
+  width: 100%;
   height: 100px;
   background: transparent;
   padding: 50px;
 
-  @media (max-width: 500px) {
-    padding: 50px 20px;
-  }
-
   .imgContain {
     img {
       border-radius: 50%;
-      height: 50px;
-      width: 50px;
+      height: 70px;
+      width: 70px;
       object-fit: cover;
       background: linear-gradient(#000 0 0) padding-box, linear-gradient(to right, orange, #ff4800) border-box;
       border: 3px solid transparent;
@@ -58,16 +54,16 @@ const Container = styled.header`
       }
     }
   }
-
   .text {
     display: flex;
     gap: 10px;
     align-items: center;
+
     h2 {
-      font-size: 1.25rem;
+      font-size: 2rem;
     }
     h4 {
-      font-size: .75rem;
+      font-size: 1rem;
       font-weight: 500;
     }    
   }

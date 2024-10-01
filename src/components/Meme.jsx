@@ -1,4 +1,4 @@
-import React, { createElement } from 'react'
+import React, { useRef, useState }  from 'react'
 import styled from 'styled-components'
 import memesData from "../memesData"
 
@@ -43,31 +43,61 @@ const Meme = () => {
     }))
   }
 
-  // const [fonts, setFonts] = React.useState(["Cursive", "Fantasy", "Monospace", "Times", "Arial", "Serif", "San-Serif"])
-  // const myFonts = () => {
-  //   setFonts(prevState => [...prevState])
-  // }
-  // const mapped = fonts.map(font => <p key={font}>{font}</p>)
+    // const canvasRef = useRef(null);
+    // const [memeImage, setMemeImage] = React.useState(null)
+
+    // const handleDownload = () => {
+    //   const canvas = canvasRef.current;
+    //   const dataURL = canvas.toDataURL(meme.randomImage);
+    //   setMemeImage(dataURL);
+  
+    //   // Create a temporary anchor element for download
+    //   const downloadLink = document.createElement('a');
+    //   downloadLink.href = dataURL;
+    //   downloadLink.download   = meme.randomImage; // Set a default download filename
+    //   downloadLink.style.display = 'none'; // Hide the element visually
+  
+    //   document.body.appendChild(downloadLink);
+    //   downloadLink.click();
+    //   document.body.removeChild(downloadLink);
+    // };
+  const [fonts, setFonts] = React.useState(["Cursive", "Fantasy", "Monospace", "Arial", "Serif", "San-Serif"])
+  
+  const [selectedFont, setSelectedFont] = useState(null)
+  const mapped = (fonts.map((font, index) => 
+    <button 
+      key={index} 
+      onClick={
+        () => {
+          const num = mapped[index].props.children
+          setSelectedFont(num)
+        }
+      }
+    >{font}</button>))
+
+    const styles = {
+      fontFamily: selectedFont ? selectedFont : "Monospace"
+    }
+
 
   return (
     <Main>
       <Form>
-            {/* {mapped} */}
-
         <div className="formInput">
           <label htmlFor='url'>
             Image URL
           </label> 
           <input 
-            style={{pointerEvents: 'none'}}
             type="text"
             name="url"
+            readOnly
             value={meme.randomImage}
           />          
         </div>
         <div className="editText">
           <h3>Edit Meme</h3>
           <div className="formInput">
+              
             <label htmlFor='topText'>
               Top Text
               {/* <input id='topText' type="text" placeholder='Shut up' /> */}
@@ -107,21 +137,27 @@ const Meme = () => {
           </div> */}
 
         </div>
-
-
+        <fieldset className='fonts'>
+          <legend>Choose your desired font</legend>
+          <div>{mapped}</div>          
+        </fieldset>
         <div className="clickBut">
           <button onClick={getMemeImage}>Get a new meme image  🖼</button>
         </div>
       </Form>
       <Memecontent>
         <img src={meme.randomImage} alt="" />          
-        <h2 className="top">{meme.topText}</h2>
-        <h2 className="bottom">{meme.bottomText}</h2>
+        <h2 className="top" style={styles}>{meme.topText}</h2>
+        <h2 className="bottom" style={styles}>{meme.bottomText}</h2>
       </Memecontent>
+      {/* <Imagedownload>
+        <canvas ref={canvasRef} width={300} height={300} style={{ backgroundColor: 'blue' }}></canvas>
+        <button onClick={handleDownload}>Download Meme</button>
+        {memeImage && <img src={memeImage} alt="Downloaded Meme Preview" />}
+      </Imagedownload> */}
     </Main>
   )
 }
-//  style={{fontFamily: myFonts}}
 const Main = styled.main`
   padding: 36px;
   margin: 100px;
@@ -131,8 +167,13 @@ const Main = styled.main`
   grid-template-columns: .7fr 1fr;
   gap: 50px;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1300px) {
     grid-template-columns: 1fr;
+  }
+  @media (max-width: 800px) {
+    background-color: transparent;
+    padding: 36px 0;
+    margin: 100px 30px;
   }
   @media (max-width: 600px) {
     margin: 100px 0;
@@ -143,6 +184,32 @@ const Form = styled.div`
   display: grid;
   grid-template-rows: repeat(4, .1fr);
   gap: 30px;
+
+  @media (max-width: 800px) {
+    background-color: antiquewhite;
+    padding: 36px;
+    border-radius: 30px;
+  }
+  .fonts {
+    display: grid;
+    div {
+      display: grid;
+      gap: 10px;
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+    
+      button {
+        font-size: 12px;
+        padding: 10px;
+      }
+      @media (max-width: 500px) {
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+
+  }
 
   .formInput {
     display: flex;
@@ -213,10 +280,13 @@ const Memecontent = styled.div`
   position: relative;
   justify-self: center;
 
-
   img {
-    max-width: 100%;
+    min-width: 100%;
     border-radius: 3px;
+
+    @media (max-width: 800px) {
+      
+    }
   }
   h2 {
     position: absolute;
@@ -250,5 +320,9 @@ const Memecontent = styled.div`
   }
 
 `
+// const Imagedownload = styled.div`
+  
+// `
+
 
 export default Meme
