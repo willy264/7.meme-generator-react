@@ -184,6 +184,7 @@ const Form = styled.div`
   display: grid;
   grid-template-rows: repeat(4, .1fr);
   gap: 30px;
+  margin: 0 200px;
 
   @media (max-width: 1800px) {
     background-color: antiquewhite;
