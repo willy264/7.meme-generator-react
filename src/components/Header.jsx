@@ -34,6 +34,10 @@ const Container = styled.header`
   background: transparent;
   padding: 50px;
 
+  @media (max-width: 500px) {
+    padding: 50px 20px;
+  }
+
   .imgContain {
     img {
       border-radius: 50%;

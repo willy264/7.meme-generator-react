@@ -41,12 +41,20 @@ const Meme = () => {
         ...prevMeme,
         [name]: value
     }))
-}
+  }
+
+  // const [fonts, setFonts] = React.useState(["Cursive", "Fantasy", "Monospace", "Times", "Arial", "Serif", "San-Serif"])
+  // const myFonts = () => {
+  //   setFonts(prevState => [...prevState])
+  // }
+  // const mapped = fonts.map(font => <p key={font}>{font}</p>)
 
   return (
     <Main>
       <Form>
-      <div className="formInput">
+            {/* {mapped} */}
+
+        <div className="formInput">
           <label htmlFor='url'>
             Image URL
           </label> 
@@ -57,32 +65,49 @@ const Meme = () => {
             value={meme.randomImage}
           />          
         </div>
-        <div className="formInput">
-          <label htmlFor='topText'>
-            Top Text
-            {/* <input id='topText' type="text" placeholder='Shut up' /> */}
-          </label>
-          <input 
-            type="text"
-            placeholder="Top text"
-            name="topText"
-            value={meme.topText}
-            onChange={handleChange}
-          />          
+        <div className="editText">
+          <h3>Edit Meme</h3>
+          <div className="formInput">
+            <label htmlFor='topText'>
+              Top Text
+              {/* <input id='topText' type="text" placeholder='Shut up' /> */}
+            </label>
+            <input 
+              type="text"
+              placeholder="Top text"
+              name="topText"
+              value={meme.topText}
+              onChange={handleChange}
+            />          
+          </div>
+          <div className="formInput">
+            <label>
+              Bottom Text
+              {/* <input type="text" placeholder='And take my money' /> */}
+            </label> 
+            <input 
+              type="text"
+              placeholder="Bottom text"
+              name="bottomText"
+              value={meme.bottomText}
+              onChange={handleChange}
+            />          
+          </div>     
+          {/* <div className="formFonts">
+            <input list="fonts" id="myfonts" name="myfonts" placeholder='Choose Fonts' />
+            <datalist id="fonts">
+              <option value="Cursive"></option>
+              <option value="Fantasy"></option>
+              <option value="Monospace"></option>
+              <option value="Times"></option>
+              <option value="Arial"></option>
+              <option value="Serif"></option>
+              <option value="San-Serif"></option>
+            </datalist>                 
+          </div> */}
+
         </div>
-        <div className="formInput">
-          <label>
-            Bottom Text
-            {/* <input type="text" placeholder='And take my money' /> */}
-          </label> 
-          <input 
-            type="text"
-            placeholder="Bottom text"
-            name="bottomText"
-            value={meme.bottomText}
-            onChange={handleChange}
-          />          
-        </div>
+
 
         <div className="clickBut">
           <button onClick={getMemeImage}>Get a new meme image  🖼</button>
@@ -96,15 +121,22 @@ const Meme = () => {
     </Main>
   )
 }
-
+//  style={{fontFamily: myFonts}}
 const Main = styled.main`
   padding: 36px;
   margin: 100px;
   background-color: antiquewhite;
-  border-radius: 50px;
+  border-radius: 30px;
   display: grid;
   grid-template-columns: .7fr 1fr;
   gap: 50px;
+
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr;
+  }
+  @media (max-width: 600px) {
+    margin: 100px 0;
+  }
 
 `
 const Form = styled.div`
@@ -139,6 +171,18 @@ const Form = styled.div`
     }        
   }
 
+  .editText {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    h3 {
+      letter-spacing: 2px;
+      font-weight: 700;  
+      font-size: 20px;
+      text-align: center;
+    }
+  }
 
   button {
     background: linear-gradient(#000000 0 0) padding-box, 
@@ -163,11 +207,12 @@ const Form = styled.div`
   }
   img {
     max-width: 100%;
-    grid-column: 1 / 3;
   }
 `
 const Memecontent = styled.div`
   position: relative;
+  justify-self: center;
+
 
   img {
     max-width: 100%;
