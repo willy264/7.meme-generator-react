@@ -184,12 +184,15 @@ const Form = styled.div`
   display: grid;
   grid-template-rows: repeat(4, .1fr);
   gap: 30px;
-  margin: 0 200px;
+  margin: 0 150px;
 
   @media (max-width: 1800px) {
     background-color: antiquewhite;
     padding: 36px;
     border-radius: 30px;
+  }
+  @media (max-width: 1000px) {
+    margin: 0;
   }
   .fonts {
     display: grid;
