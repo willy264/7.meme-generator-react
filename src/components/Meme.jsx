@@ -29,7 +29,7 @@ const Meme = () => {
     // const memesArray = allMemes.data.memes;
     const randomNumber = Math.floor(Math.random() * allMemes.length);
     const url = allMemes[randomNumber].url
-    console.log(url)
+    // console.log(url)
     setMeme(prevMeme => ({
       ...prevMeme,
       randomImage: url
@@ -79,6 +79,7 @@ const Meme = () => {
     const styles = {
       fontFamily: selectedFont ? selectedFont : "Monospace"
     }
+    const classFont = selectedFont;
 
 
   return (
@@ -101,7 +102,6 @@ const Meme = () => {
               
             <label htmlFor='topText'>
               Top Text
-              {/* <input id='topText' type="text" placeholder='Shut up' /> */}
             </label>
             <input 
               type="text"
@@ -114,7 +114,6 @@ const Meme = () => {
           <div className="formInput">
             <label>
               Bottom Text
-              {/* <input type="text" placeholder='And take my money' /> */}
             </label> 
             <input 
               type="text"
@@ -124,18 +123,6 @@ const Meme = () => {
               onChange={handleChange}
             />          
           </div>     
-          {/* <div className="formFonts">
-            <input list="fonts" id="myfonts" name="myfonts" placeholder='Choose Fonts' />
-            <datalist id="fonts">
-              <option value="Cursive"></option>
-              <option value="Fantasy"></option>
-              <option value="Monospace"></option>
-              <option value="Times"></option>
-              <option value="Arial"></option>
-              <option value="Serif"></option>
-              <option value="San-Serif"></option>
-            </datalist>                 
-          </div> */}
 
         </div>
         <fieldset className='fonts'>
@@ -148,7 +135,7 @@ const Meme = () => {
       </Form>
       <Memecontent>
         <img src={meme.randomImage} alt="" />          
-        <h2 className="top" style={styles}>{meme.topText}</h2>
+        <h2 className={`${classFont} top`} style={styles}>{meme.topText}</h2>
         <h2 className="bottom" style={styles}>{meme.bottomText}</h2>
       </Memecontent>
       {/* <Imagedownload>
