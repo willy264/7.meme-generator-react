@@ -62,7 +62,7 @@ const Meme = () => {
     //   downloadLink.click();
     //   document.body.removeChild(downloadLink);
     // };
-  const [fonts, setFonts] = React.useState(["Cursive", "Fantasy", "Monospace", "Arial", "Serif", "Montserrat"])
+  const [fonts, setFonts] = React.useState(["Cursive", "Jacquarda Bastarda 9", "Monospace", "Arial", "Serif", "Montserrat"])
   
   const [selectedFont, setSelectedFont] = useState(null)
   const mapped = (fonts.map((font, index) => 
@@ -135,7 +135,7 @@ const Meme = () => {
       </Form>
       <Memecontent>
         <img src={meme.randomImage} alt="" />          
-        <h2 className={`${classFont} top`} style={styles}>{meme.topText}</h2>
+        <h2 className={`${classFont} top`}>{meme.topText}</h2>
         <h2 className="bottom" style={styles}>{meme.bottomText}</h2>
       </Memecontent>
       {/* <Imagedownload>
