@@ -1,6 +1,7 @@
 import React, { useRef, useState }  from 'react'
 import styled from 'styled-components'
 import memesData from "../memesData"
+import '../index.css'
 
 
 // const url
@@ -61,7 +62,7 @@ const Meme = () => {
     //   downloadLink.click();
     //   document.body.removeChild(downloadLink);
     // };
-  const [fonts, setFonts] = React.useState(["Cursive", "Fantasy", "Monospace", "Arial", "Serif", "San-Serif"])
+  const [fonts, setFonts] = React.useState(["Cursive", "Fantasy", "Monospace", "Arial", "Serif", "Montserrat"])
   
   const [selectedFont, setSelectedFont] = useState(null)
   const mapped = (fonts.map((font, index) => 
