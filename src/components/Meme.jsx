@@ -1,7 +1,7 @@
 import React, { useRef, useState }  from 'react'
 import styled from 'styled-components'
 import memesData from "../memesData"
-import '../index.css'
+// import '../index.css'
 import '../App.css'
 
 // const url
@@ -62,7 +62,7 @@ const Meme = () => {
     //   downloadLink.click();
     //   document.body.removeChild(downloadLink);
     // };
-  const [fonts, setFonts] = React.useState(["Cursive", "Jacquarda Bastarda 9", "Monospace", "Arial", "Serif", "Montserrat"])
+  const [fonts, setFonts] = React.useState(["'Permanent Marker'", "'Black Ops One'", "'Tiny5'", "'Sankofa Display'", "'Ga Maamli'", "'Faster One'", "'Ruslan Display'", "'Danfo'", "'Dancing Script'", "'Indie Flower'", "'Covered By Your Grace'", "'Amatic SC'"])
   
   const [selectedFont, setSelectedFont] = useState(null)
   const mapped = (fonts.map((font, index) => 
